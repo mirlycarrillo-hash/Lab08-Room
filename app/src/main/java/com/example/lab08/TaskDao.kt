@@ -20,7 +20,7 @@ interface TaskDao {
     @Update
     suspend fun updateTask(task: Task)
 
-    // Eliminar todas las tareas
+    // Eliminar todas las tareas (retornando Int evita el error en KSP)
     @Query("DELETE FROM tasks")
-    suspend fun deleteAllTasks()
+    suspend fun deleteAllTasks(): Int
 }
